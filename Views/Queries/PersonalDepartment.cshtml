@@ -1,0 +1,45 @@
+﻿@model PersonalDepartmentViewModel
+@{
+    ViewData["Title"] = "Отдел кадров";
+}
+
+<h2>Отдел кадров</h2>
+<form method="get" asp-action="PersonalDepartment" asp-controller = "Queries">
+    <div>
+        <label asp-for="Job">Должность</label><br />
+        <select asp-for="Job">
+            @foreach(var job in ViewBag.Jobs){
+                <option value="@job">@job</option>
+            }
+        </select><br /><br />
+        <input type="submit" value="Фильтр" />
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>ФИО</th>
+        <th>Возраст</th>
+        <th>Пол</th>
+        <th>Адрес</th>
+        <th>Телефон</th>
+        <th>Пасспорт</th>
+        <th>Должность</th>
+        <th>Оклад</th>
+        <th>Обязанности</th>
+        <th>Требования</th>
+    </tr>
+    @foreach(var item in Model.Collection){
+        <tr>
+            <td>@item.FIO</td>
+            <td>@item.Age</td>
+            <td>@item.Gender</td>
+            <td>@item.Address</td>
+            <td>@item.Phone</td>
+            <td>@item.Passport</td>
+            <td>@item.JobName</td>
+            <td>@item.Salary</td>
+            <td>@item.Responsibilities</td>
+            <td>@item.Requirements</td>
+        </tr>
+    }
+</table>

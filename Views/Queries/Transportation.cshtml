@@ -1,0 +1,23 @@
+﻿@model TransportationViewModel
+@{
+    ViewData["Title"] = "Транспортировка";
+}
+
+<h2>Транспортировка</h2>
+<table class="table">
+    <tr>
+        <th>Название груза</th>
+        <th>Описание груза</th>
+        <th>Тип автомобиля</th>
+        <th>Описание автомобиля</th>
+    </tr>
+    @foreach (var item in Model.Collection)
+    {
+        <tr>
+            <td>@item.CargoName</td>
+            <td>@item.CargoDescription</td>
+            <td>@item.AutoName</td>
+            <td>@item.AutoDescription</td>
+        </tr>
+    }
+</table>

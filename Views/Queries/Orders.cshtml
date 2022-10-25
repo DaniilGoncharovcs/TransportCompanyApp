@@ -1,0 +1,67 @@
+﻿@model OrdersViewModel
+@{
+    ViewData["Title"] = "Заказы";
+}
+
+<h2>Заказы</h2>
+<form method="get" asp-action="Orders" asp-controller="Queries">
+    <div>
+        <label asp-for="CargoName">Название груза</label><br />
+        <select asp-for="CargoName" class="form-control">
+            @foreach(var cargo in ViewBag.Cargos){
+                <option value="@cargo">@cargo</option>
+            }
+        </select><br />
+    </div>
+    <div>
+        <label asp-for="Customer">Заказчик</label><br />
+        <input asp-for="Customer" class="form-control" /><br />
+    </div>
+    <div>
+        <label asp-for="IsPaid">Оплачен</label>
+        <input name="IsPaid" asp-for="IsPaid"/><br />
+    </div>
+    <div>
+        <label asp-for="IsReturned">Вернулся</label>
+        <input name="IsReturned" asp-for="IsReturned" type="checkbox"/>
+        <br />
+        <input type="submit" value="Фильтр" />
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>Ригистрационный номер авто</th>
+        <th>Дата последнего ТО</th>
+        <th>Заказчик</th>
+        <th>Откуда</th>
+        <th>Куда</th>
+        <th>Дата отправления</th>
+        <th>Дата прибытия</th>
+        <th>Название груза</th>
+        <th>Особенности</th>
+        <th>Цена</th>
+        <th>Оплачен</th>
+        <th>Вернулся с рейса</th>
+        <th>ФИО водителя</th>
+        <th>ФИО механика</th>
+    </tr>
+    @foreach (var item in Model.Collection)
+    {
+        <tr>
+            <td>@item.AutoRegisterNumber</td>
+            <td>@item.MaintenanceDate</td>
+            <td>@item.Customer</td>
+            <td>@item.Start</td>
+            <td>@item.End</td>
+            <td>@item.DateStart</td>
+            <td>@item.DateEnd</td>
+            <td>@item.CargoName</td>
+            <td>@item.CargoFeatures</td>
+            <td>@item.Price</td>
+            <td>@item.IsPaid</td>
+            <td>@item.IsReturned</td>
+            <td>@item.DriverFio</td>
+            <td>@item.EnginerFio</td>
+        </tr>
+    }
+</table>

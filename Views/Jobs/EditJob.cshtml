@@ -1,0 +1,30 @@
+﻿@model Job
+@{
+    ViewData["Title"] = "Изменение должности";
+}
+<h2>Изменение должности</h2>
+<form asp-action="EditJob" asp-controller="Jobs" asp-route-id="@Model.JobId">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Salary"></label>
+        <input type="number" asp-for="Salary" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Responsibilities"></label>
+        <input type="text" asp-for="Responsibilities" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Requirements"></label>
+        <input type="text" asp-for="Requirements" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Изменить должность" class="btn btn-primary" />
+    </div>
+</form>

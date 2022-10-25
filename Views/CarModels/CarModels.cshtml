@@ -1,0 +1,25 @@
+﻿@model IEnumerable<CarModel>
+@{
+    ViewData["Title"] = "Марки автомобилей";
+}
+
+<h2>Список марок автомобилей</h2>
+<p><a asp-action="CreateCarModel">Добавить марку автомобиля</a></p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Технические характеристики</th>
+        <th>Описание</th>
+    </tr>
+    @foreach(var carmodel in Model){
+        <tr>
+            <td>@carmodel.CarModelId</td>
+            <td>@carmodel.Name</td>
+            <td>@carmodel.Description</td>
+            <td>
+                <a asp-action="EditCarModel" asp-route-id="@carmodel.CarModelId">Изменить</a>
+                <a asp-action="DeleteCarModel" asp-route-id="@carmodel.CarModelId">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>

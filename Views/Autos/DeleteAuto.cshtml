@@ -1,0 +1,21 @@
+﻿@model Auto
+@{
+    ViewBag.Title = "Удаление автомобиля";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Вы хотите удалить автомобиль с ID:</dt>
+        <dd>
+            @Html.DisplayFor(model => model.AutoId)
+        </dd>
+    </dl>
+
+    <div>
+        <form asp-controller="Autos" asp-action="Delete" method="post" asp-route-id="@Model.AutoId">
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Удалить" />
+            </div>
+        </form>
+    </div>
+</div>

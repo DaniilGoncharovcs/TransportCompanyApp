@@ -1,0 +1,22 @@
+﻿@model Voyage
+@{
+    ViewBag.Title = "Удаление рейсa";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Вы хотите удалить рейс с заказчиком и датой начала:</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer)
+            @Html.DisplayFor(model => model.DateStart)
+        </dd>
+    </dl>
+
+    <div>
+        <form asp-controller="Voyages" asp-action="Delete" method="post" asp-route-id="@Model.VoyageId">
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Удалить" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Auto>
+@{
+    ViewData["Title"] = "Автомобили";
+}
+
+<h2>Список автомобилей</h2>
+<p><a asp-action="CreateAuto">Добавить автомобиль</a></p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Id марки автомобиля</th>
+        <th>Id типа автомобиля</th>
+        <th>Регистрационный номер</th>
+        <th>Номер кузова</th>
+        <th>Номер двигателя</th>
+        <th>Год выпуска</th>
+        <th>Код сотрудника-водителя</th>
+        <th>Дата последнего ТО</th>
+        <th>Код сотрудника-механика</th>
+        <th></th>
+    </tr>
+    @foreach(var auto in Model){
+        <tr>
+            <td>@auto.AutoId</td>
+            <td>@auto.CarModelId</td>
+            <td>@auto.AutoTypeId</td>
+            <td>@auto.RegisterNumber</td>
+            <td>@auto.BodyNumber</td>
+            <td>@auto.EngineNumber</td>
+            <td>@auto.Year</td>
+            <td>@auto.DriverId</td>
+            <td>@auto.MaintenanceDate</td>
+            <td>@auto.EngineerId</td>
+            <td>
+                <a asp-action="EditAuto" asp-route-id="@auto.AutoId">Изменить</a>
+                <a asp-action="DeleteAuto" asp-route-id="@auto.AutoId">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>

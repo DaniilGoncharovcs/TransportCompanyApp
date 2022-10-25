@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Добро пожаловать</h1>
+    <p>Выбирите таблицу или запросы для просмотра.</p>
+    <a asp-action="Employees" asp-controller="Employees">Таблица Сотрудников</a> <br />
+    <a asp-action="Jobs" asp-controller="Jobs">Таблица Должностей</a> <br />
+    <a asp-action="AutoTypes" asp-controller="AutoTypes">Таблица видов автомобилей</a><br />
+    <a asp-action="CarModels" asp-controller="CarModels">Таблица марок автомобилей</a><br />
+    <a asp-action="CargoTypes" asp-controller="CargoTypes">Таблица видов грузов</a><br />
+    <a asp-action="Cargos" asp-controller="Cargos">Таблица грузов</a><br />
+    <a asp-action="Autos" asp-controller="Autos">Таблица автомобилей</a><br />
+    <a asp-action="Voyages" asp-controller="Voyages">Таблица рейсов</a><br />
+    <a asp-action="PersonalDepartment" asp-controller="Queries">Запрос отдел кадров</a><br />
+    <a asp-action="Transportation" asp-controller="Queries">Запрос транспортировка</a><br />
+    <a asp-action="TransportedGoods" asp-controller="Queries">Запрос перевозимые грузы</a><br />
+    <a asp-action="AutoPark" asp-controller="Queries">Запрос Авто парк</a><br />
+    <a asp-action="Orders" asp-controller="Queries">Запрос заказы</a><br />
+</div>

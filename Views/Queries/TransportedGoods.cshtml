@@ -1,0 +1,36 @@
+﻿@model TransportedGoodsViewModel
+@{
+    ViewData["Title"] = "Перевозимые грузы";
+}
+
+<h2>Отдел кадров</h2>
+<form method="get" asp-action="TransportedGoods" asp-controller="Queries">
+    <div>
+        <label asp-for="CargoTypeName">Тип груза</label><br />
+        <select asp-for="CargoTypeName" class="form-control">
+            @foreach(var type in ViewBag.CargoTypes){
+                <option value="@type">@type</option>
+            }
+        </select><br />
+        <input type="submit" value="Фильтр" />
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>Название груза</th>
+        <th>Срок годности</th>
+        <th>Особенности</th>
+        <th>Тип груза</th>
+        <th>Описание</th>
+    </tr>
+    @foreach (var item in Model.Collection)
+    {
+        <tr>
+            <td>@item.CargoName</td>
+            <td>@item.ExpirationDate</td>
+            <td>@item.Features</td>
+            <td>@item.CargoTypeName</td>
+            <td>@item.Description</td>
+        </tr>
+    }
+</table>

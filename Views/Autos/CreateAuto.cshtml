@@ -1,0 +1,72 @@
+﻿@model Auto
+@{
+    ViewData["Title"] = "Добавление автомобиля";
+}
+<h2>Добавление автомобиля</h2>
+<form asp-action="CreateAuto" asp-controller="Autos">
+    <div class="form-group">
+        <label asp-for="CarModelId"></label>
+        <select asp-for="CarModelId" class="form-control">
+            @foreach(var carModel in ViewBag.CarModels){
+                <option value="@carModel.CarModelId">@carModel.CarModelId - @carModel.Name</option>
+            }
+        </select>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="AutoTypeId"></label>
+        <select asp-for="AutoTypeId" class="form-control">
+            @foreach (var autoType in ViewBag.AutoTypes)
+            {
+                <option value="@autoType.AutoTypeId">@autoType.AutoTypeId - @autoType.Name</option>
+            }
+        </select>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="RegisterNumber"></label>
+        <input type="number" asp-for="RegisterNumber" class="form-control"/>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="BodyNumber"></label>
+        <input type="number" asp-for="BodyNumber" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="EngineNumber"></label>
+        <input type="number" asp-for="EngineNumber" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Year"></label>
+        <input asp-for="Year" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="DriverId"></label>
+        <select asp-for="DriverId" class="form-control">
+            @foreach (var employee in ViewBag.Drivers)
+            {
+                <option value="@employee.EmployeeId">@employee.EmployeeId - @employee.FIO</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="MaintenanceDate"></label>
+        <input asp-for="MaintenanceDate" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="EngineerId"></label>
+        <select asp-for="EngineerId" class="form-control">
+            @foreach (var employee in ViewBag.Engineers)
+            {
+                <option value="@employee.EmployeeId">@employee.EmployeeId - @employee.FIO</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Добавить автомобиль" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,21 @@
+﻿@model Employee
+@{
+    ViewBag.Title = "Удаление сотрудника";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>Вы хотите удалить сотрудника с ФИО:</dt>
+        <dd>
+            @Html.DisplayFor(model => model.FIO)
+        </dd>
+    </dl>
+
+    <div>
+        <form asp-controller="Employees" asp-action="Delete" method="post" asp-route-id="@Model.EmployeeId">
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Удалить" />
+            </div>
+        </form>
+    </div>
+</div>

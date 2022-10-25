@@ -1,0 +1,30 @@
+﻿@model Job
+@{
+    ViewData["Title"] = "Добавление должности";
+}
+<h2>Добавление должности</h2>
+<form asp-action="CreateJob" asp-controller="Jobs">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control"/>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Salary"></label>
+        <input type="number" asp-for="Salary" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Responsibilities"></label>
+        <input type="text" asp-for="Responsibilities" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Requirements"></label>
+        <input type="text" asp-for="Requirements" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Добавить должность" class="btn btn-primary" />
+    </div>
+</form>

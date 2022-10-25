@@ -1,0 +1,30 @@
+﻿@model CargoType
+@{
+    ViewData["Title"] = "Изменение вида груза";
+}
+<h2>Изменение вида груза</h2>
+<form asp-action="EditCargoType" asp-controller="CargoTypes" asp-route-id="@Model.CargoTypeId">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="AutoTypeId"></label>
+        <select asp-for="AutoTypeId">
+            @foreach (var autoType in ViewBag.AutoTypes)
+            {
+                <option value="@autoType.AutoTypeId">@autoType.AutoTypeId - @autoType.Name</option>
+            }
+        </select>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Изменить вид груза" class="btn btn-primary" />
+    </div>
+</form>

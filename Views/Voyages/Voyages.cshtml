@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Voyage>
+@{
+    ViewData["Title"] = "Рейсы";
+}
+
+<h2>Список рейсов</h2>
+<p><a asp-action="CreateVoyage">Добавить рейс</a></p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Заказчик</th>
+        <th>Откуда</th>
+        <th>Куда</th>
+        <th>Дата отправления</th>
+        <th>Дата прибытия</th>
+        <th>Код груза</th>
+        <th>Цена</th>
+        <th>Отметка об оплате</th>
+        <th>Отметка о возвращении</th>
+        <th>Код сотрудника</th>
+    </tr>
+    @foreach(var voyage in Model){
+        <tr>
+            <td>@voyage.VoyageId</td>
+            <td>@voyage.Customer</td>
+            <td>@voyage.Start</td>
+            <td>@voyage.End</td>
+            <td>@voyage.DateStart</td>
+            <td>@voyage.DateEnd</td>
+            <td>@voyage.CargoId</td>
+            <td>@voyage.Price</td>
+            <td>@voyage.IsPaid</td>
+            <td>@voyage.IsReturned</td>
+            <td>@voyage.EmployeeId</td>
+            <td>
+                <a asp-action="EditVoyage" asp-route-id="@voyage.VoyageId">Изменить</a>
+                <a asp-action="DeleteVoyage" asp-route-id="@voyage.VoyageId">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>

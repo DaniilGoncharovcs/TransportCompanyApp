@@ -1,0 +1,20 @@
+﻿@model AutoType
+@{
+    ViewData["Title"] = "Изменение вида автомобиля";
+}
+<h2>Изменение вида автомобиля</h2>
+<form asp-action="EditAutoType" asp-controller="AutoTypes" asp-route-id="@Model.AutoTypeId">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Изменить вид автомобиля" class="btn btn-primary" />
+    </div>
+</form>

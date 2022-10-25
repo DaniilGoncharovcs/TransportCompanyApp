@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AutoType>
+@{
+    ViewData["Title"] = "Виды автомобилей";
+}
+
+<h2>Список видов автомобилей</h2>
+<p><a asp-action="CreateAutoType">Добавить вид автомобиля</a></p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Наименование</th>
+        <th>Описание</th>
+    </tr>
+    @foreach(var type in Model){
+        <tr>
+            <td>@type.AutoTypeId</td>
+            <td>@type.Name</td>
+            <td>@type.Description</td>
+            <td>
+                <a asp-action="EditAutoType" asp-route-id="@type.AutoTypeId">Изменить</a>
+                <a asp-action="DeleteAutoType" asp-route-id="@type.AutoTypeId">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>

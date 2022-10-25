@@ -1,0 +1,39 @@
+﻿@model AutoParkViewModel
+@{
+    ViewData["Title"] = "Авто парк";
+}
+
+<h2>Авто парк</h2>
+<form method="get" asp-action="AutoPark" asp-controller="Queries">
+    <div>
+        <label asp-for="Type">Тип автомобиля</label><br />
+        <select asp-for="Type" class="form-control">
+            @foreach(var type in ViewBag.AutoTypes){
+                <option value="@type">@type</option>
+            }
+        </select><br />
+        <input type="submit" value="Фильтр" />
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>Регистрационный номер</th>
+        <th>Марка автомобиля</th>
+        <th>Описание авто</th>
+        <th>Тип автомобиля</th>
+        <th>Водитель</th>
+        <th>Механик</th>
+    </tr>
+    @foreach (var item in Model.Collection)
+    {
+        <tr>
+            <td>@item.RegisterNumber</td>
+            <td>@item.CarModel</td>
+            <td>@item.CarDescription</td>
+            <td>@item.AutoType</td>
+            <td>@item.AutoTypeDescription</td>
+            <td>@item.Driver</td>
+            <td>@item.Engineer</td>
+        </tr>
+    }
+</table>

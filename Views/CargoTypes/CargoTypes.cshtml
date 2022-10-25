@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CargoType>
+@{
+    ViewData["Title"] = "Виды грузов";
+}
+
+<h2>Виды грузов</h2>
+<p><a asp-action="CreateCargoType">Добавить вид груза</a></p>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Наименование</th>
+        <th>Описание</th>
+        <th>Код вида автомобиля</th>
+    </tr>
+    @foreach(var cargoType in Model){
+        <tr>
+            <td>@cargoType.CargoTypeId</td>
+            <td>@cargoType.Name</td>
+            <td>@cargoType.Description</td>
+            <td>@cargoType.AutoTypeId</td>
+            <td>
+                <a asp-action="EditCargoType" asp-route-id="@cargoType.CargoTypeId">Изменить</a>
+                <a asp-action="DeleteCargoType" asp-route-id="@cargoType.CargoTypeId">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>

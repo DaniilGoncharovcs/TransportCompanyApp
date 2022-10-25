@@ -1,0 +1,53 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Изменение сотрудника";
+}
+<h2>Изменение сотрудника</h2>
+<form asp-action="EditEmployee" asp-controller="Employees" asp-route-id="@Model.EmployeeId">
+    <div class="form-group">
+        <label asp-for="FIO"></label>
+        <input type="text" asp-for="FIO" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Age"></label>
+        <input type="number" asp-for="Age" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Gender"></label>
+        <select asp-for="Gender">
+            <option value="мужчина">мужчина</option>
+            <option value="женщина">женщина</option>
+        </select>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input type="text" asp-for="Address" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Phone"></label>
+        <input type="tel" asp-for="Phone" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Passport"></label>
+        <input type="text" asp-for="Passport" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="JobId"></label>
+        <select asp-for="JobId">
+            @foreach (var job in ViewBag.Jobs)
+            {
+                <option value="@job.JobId">@job.JobId - @job.Name</option>
+            }
+        </select>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-primary" />
+    </div>
+</form>
